@@ -8,6 +8,7 @@ RUN curl --insecure -o ./sonarscanner.zip -L https://binaries.sonarsource.com/Di
 RUN unzip sonarscanner.zip
 RUN rm sonarscanner.zip
 RUN mv sonar-scanner-3.2.0.1227-linux sonar-scanner
+RUN apk add --update bash curl nodejs && rm -rf /var/cache/apk/*
 
 ENV SONAR_RUNNER_HOME=/sonar/sonar-scanner
 ENV PATH $PATH:/sonar/sonar-scanner/bin
